@@ -26,4 +26,4 @@
 
 - A maquina faz com que as galinhas, que antes eram trabalhadores, se tornassem a mercadoria, todas morrem (fim de jogo)
 
-
+- Como betty descobre o acontece depois que deixam de botar ovos.
