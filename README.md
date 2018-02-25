@@ -1,1 +1,1 @@
-# gama-chicken-run
+# game chicken run
