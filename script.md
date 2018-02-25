@@ -3,7 +3,7 @@
 
 - Betty tenta convencer as demais que a história do paraíso e um conto da carochinha, e que elas devem fugir da ali antes que virem assado ou torta de galinha.
 
-- As galinhas conformistas não são capazes de visualizar um sistema diferente do imposto à elas, lembrando o Mito da Caverna de Platão, ou remete a idade media quando a igreja pregava a ceitação da pobrega e a abnegação para alcançar o reino dos ceus. No mundo capitalista as galinhas se tornao o meio de produção vendendo sua forca de de trabalho em troca de uma promessa alienadas e estranhas ao destino dos ovos, o que os torna objeto de alto valor agregado uma vez que garante sua sobrevivência e apos um numero significativo vai garantir uma vida boa e de descanso.
+- As galinhas conformistas não são capazes de visualizar um sistema diferente do imposto à elas, lembrando o Mito da Caverna de Platão, ou remete a idade media quando a igreja pregava a ceitação da pobreza e a abnegação para alcançar o reino dos ceus. No mundo capitalista as galinhas se tornao o meio de produção vendendo sua forca de de trabalho em troca de uma promessa alienadas e estranhas ao destino dos ovos, o que os torna objeto de alto valor agregado uma vez que garante sua sobrevivência e apos um numero significativo vai garantir uma vida boa e de descanso.
 
 - A Betty é muito criativa para criar planos "infalíveis" para fugir da granja. Mas algo sempre dá errado e ela acaba presa na solitária. 
 
