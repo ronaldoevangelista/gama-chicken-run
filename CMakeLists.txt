@@ -13,6 +13,10 @@ SET(CMAKE_INCLUDE_CURRENT_DIR ON)
 FILE(GLOB_RECURSE SRC_SOURCES "src/*.c*")
 FILE(GLOB_RECURSE INC_HEADERS "include/*.h*")
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR} )
+find_package(Curses REQUIRED)
 
-add_executable(${APP_NAME} ${SRC_SOURCES} ${INC_HEADERS})    
+include_directories(${CMAKE_CURRENT_SOURCE_DIR} )
+include_directories(${CURSES_INCLUDE_DIR})
+
+add_executable(${APP_NAME} ${SRC_SOURCES} ${INC_HEADERS})
+target_link_libraries(${APP_NAME} ${CURSES_LIBRARIES})
