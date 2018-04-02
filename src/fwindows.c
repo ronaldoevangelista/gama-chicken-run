@@ -12,6 +12,25 @@ int ch;
 int choice = 0;
 int highlight = 1;
 int n_choices = sizeof(choices) / sizeof(char *);
+WINDOW *wingstart;
+
+WINDOW *my_win;
+WINDOW *menu_win;
+WINDOW *local_win;
+
+int gstartx, gstarty, gwidth, gheight;
+
+void startscreen()
+{
+    gheight = 10;
+    gwidth  = 80;
+
+    gstarty = (LINES - gheight) / 2;
+    gstartx = (COLS  - gwidth)  / 2 ;	 
+    my_win = create_newwin(gheight, gwidth, gstarty, gstartx);
+   // p_main_window(menu_win);
+
+}
 
 void p_main_window(WINDOW *pwin)
 {
@@ -66,7 +85,7 @@ WINDOW *create_newwin(int height, int width, int starty, int startx)
 {	
     char mesg[255];	
 
-    WINDOW *local_win;
+
 	local_win = newwin(height, width, starty, startx);
 	box(local_win, 0 , 0);	
     
@@ -105,20 +124,22 @@ WINDOW *create_newwin(int height, int width, int starty, int startx)
 			case 10:
                 if(highlight < 3)
                 {
-                    mvwprintw(local_win, 7, 20, "%s", "xxxxxxxxxxxx");
-                }else if(highlight == 3){
+                //startscreen();
+                
+                //destroy_win(local_win);
+
+                }else if(highlight == 3)
+                {
                     return 0;
                 }
                 clrtoeol();
                 refresh();
 				break;
 			default:
-				refresh();
 				break;
 		}
 		print_menu(local_win, highlight);
         clrtoeol();
-	    refresh();
 		if(choice != 0)
         {
 			break;
@@ -140,7 +161,6 @@ void printmsg(WINDOW *l_win, int option)
     else {
         strcpy(lmesg,"Exit Game!");
     }
-    wrefresh(l_win);
     werase(l_win);
     mvwprintw(l_win, 7, 20, " %d - %s",option, lmesg);
     wrefresh(l_win);
@@ -177,24 +197,54 @@ void print_ttitle(int lcols)
     refresh();
 }
 
+void new_window(WINDOW *pwin, char title[])
+{
+    int x, y , p , c;
+    char mesg[255];	
+    
+    refresh();
+    
+    clear();
+    
+    refresh();
+    
+    getmaxyx(stdscr, y, x);
+    
+    refresh();
+
+    pwin = newwin(y - 4, x - 4, 1, 2);
+    
+    box(pwin, 0, 0);
+    
+    p = ((x -4)/2) - strlen(mesg) / 2 ;
+    
+    strcpy(mesg,title);
+    mvwprintw(pwin, 1, p, "%s",mesg);
+    
+    wrefresh(pwin);
+}
+
 void paint_window(WINDOW *win1)
 {
-    int x, y;
+    int startx, starty, width, height;    
+
     refresh();
     clear();
     refresh();
 
-    getmaxyx(stdscr, y, x);
-   // bkgd(COLOR_PAIR(1));
+    init_pair(1, COLOR_BLACK, COLOR_RED);
+    init_pair(2, COLOR_BLACK, COLOR_GREEN);
+
+    bkgd(COLOR_PAIR(1));
     refresh();
 
-    win1 = newwin(3, x - 4, 1, 2);
+	height = 10;
+	width  = 80;
+        
+    starty = (LINES - height) / 2;
+    startx = (COLS  - width)  / 2 ;	
+
+    win1 = newwin(height, width, starty, startx);    
     box(win1, 0, 0);
-   // wbkgd(win1, COLOR_PAIR(2));
-
-    //wattron(win1, COLOR_PAIR(3));
-   // mvwprintw(win1, 1, 1, "MAX X: %d, MAX Y: %d. Press 'q' to exit.", x, y);
-   // wattroff(win1, COLOR_PAIR(3));
-
     wrefresh(win1);
 }

@@ -14,3 +14,5 @@ WINDOW *create_newwin(int height, int width, int starty, int startx);
 
 void print_menu(WINDOW *menu_win, int highlight);
 void printmsg(WINDOW *l_win, int option);
+void new_window(WINDOW *pwin, char title[]);
+void startscreen();
