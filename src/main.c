@@ -33,14 +33,14 @@ int main(int argc, char *argv[])
   init_pair(1, COLOR_BLACK, COLOR_RED);
   init_pair(2, COLOR_BLACK, COLOR_GREEN);
 
-  attron(COLOR_PAIR(1));
+ // attron(COLOR_PAIR(1));
   keypad(stdscr, TRUE);
 
-	height = 30;
-	width  = 40;
+	height = 10;
+	width  = 80;
 	
   starty = (LINES - height) / 2;
-  startx = (COLS  - width)  / 2;	
+  startx = (COLS  - width)  / 2 ;	
 
   p_main_window(pwin);
  
