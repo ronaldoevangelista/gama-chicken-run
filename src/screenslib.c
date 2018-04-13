@@ -222,23 +222,25 @@ void playGame()
 	{
 		enemyMonster = 100;
 		chickenhero  = 100;
-		srand(time(NULL));
-		
-		headBar();
-		gameHeader();
-		textbackground(BLACK);	
-		
+		srand(time(NULL));	
+	clrscr();	
 		do{
+			headBar();
+			gameHeader();
+			textbackground(BLACK);
+	
 			gotoxy((center -14 ),13); 
 			scanf("%i", &readOption);  
 			getchar(); 
-			
-					
+				
 			if(readOption==1)
 			{
-			
 				hitAttack=randInt(10);	
 				enemyMonster=enemyMonster-hitAttack;
+				
+				headBar();
+				gameHeader();
+				textbackground(BLUE);
 				
 				textbackground(BLUE);   						
 				gotoxy((center -36),15);			
@@ -251,26 +253,58 @@ void playGame()
         			cprintf("SWING! - By not having seen her the farmer was punished with  %i damage",chickenhero);
         			textbackground(BLACK);
 				}
-				
-        		headBar();		
 
+				if(enemyMonster < 0)
+		        {
+					textbackground(BLUE); 
+					gotoxy((center -26),16);			
+					cprintf("You have killed the monster you win!");
+					textbackground(BLACK);
+					enemyMonster = 0;
+					headBar();
+					gotoxy((center - 2),18);			
+					cprintf("[OK]");
+					getchar(); 
+		            break;
+		        }
+		        
+        		headBar();		
         		textbackground(BLACK);
 			}
 			else if(readOption==2) {
-
-				textbackground(BLACK);
-				headBar();
 				
+				clrscr();		
+				textbackground(BLACK);
+				
+				hitAttack=randIntLightning(10);
+				enemyMonster=enemyMonster-hitAttack;
+				
+				headBar();
+				gameHeader();
+				screenBlue();
+				textbackground(BLUE); 
 				gotoxy((center -36),15);			
 				cprintf("The gods are helping you, comes to your aid CLAAASH! %i damage",hitAttack);
         		textbackground(BLACK);  
         		
-				
+				if(enemyMonster < 0)
+		        {
+					textbackground(BLUE); 
+					gotoxy((center -26),16);			
+					cprintf("You have killed the monster you win!");
+					textbackground(BLACK);
+					enemyMonster = 0;
+					headBar();
+					gotoxy((center - 2),18);			
+					cprintf("[OK]");
+					getchar(); 
+		            break;
+		        }
+								
 				/*
 				textbackground(BLACK);  
 				
-				hitAttack=randIntLightning(10);
-				enemyMonster=enemyMonster-hitAttack;
+		
 				
 				headBar();
 				textbackground(BLACK);
