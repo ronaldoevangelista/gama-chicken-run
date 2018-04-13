@@ -3,22 +3,41 @@
 #include <malloc.h>
 #include <stdlib.h>
 #include <string.h>
+#include <windows.h>
+#include "screenslib.h"
 
 
+void erro();
 
-void linhas();
 
-int main(int argc, char *argv[])
+void main(int argc, char *argv[])
 {
-	
 	clrscr();
-	textbackground(BLACK);       
-	linhas();  
-	system("pause");
-	return 0;
+ 	createStartGame();
+ 	
+ 	
+	printf("\n\n\n\n\n\n\n\n\n");
+	return;
 }
 
-void linhas(){
-gotoxy(16,8); printf("-----------------------------------------------");   
-gotoxy(16,20);printf("-----------------------------------------------");  
-}
+
+void erro()
+{                                                
+	int j,i;
+	
+	getScreenSize();
+		
+	textbackground(RED);
+/*	
+	for(j=0;j<=gwcols;j++)
+	{                   
+		for(i=0;i<=gwrows;i++)
+		{
+			gotoxy(i,j);
+			printf(" ");
+		}
+	}   
+	*/                         
+} 
+                 
+
