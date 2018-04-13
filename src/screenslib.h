@@ -19,5 +19,15 @@ void erro();
 
 void headBar();
 
+void screenBlue();
+
+void gameHeader();
+
 void playGame();
+
+int randInt(int n);
+
+int randIntLightning(int n);
+
+int randIntFist(int n);
 

@@ -128,13 +128,19 @@ void menuStartGame()
 
 void startNewGame()
 {
-	int readOption;
 	int cols;
 	
 	getScreenSize();
 	textbackground(BLACK);
 	headBar();
+	screenBlue();
+	textbackground(BLACK);	  
+	playGame(); 
+	system("cls");   
+}
 
+void screenBlue()
+{
 	j = 0;
 	i = 0,
 	
@@ -152,10 +158,6 @@ void startNewGame()
 		} 
 	}
 	textbackground(BLACK);	  
-
-	scanf("%d", &readOption);  
-	getchar();  
-	system("cls");   
 }
 
 void headBar()
@@ -202,10 +204,108 @@ void headBar()
 	textbackground(BLACK);
 }
 
-
+void gameHeader()
+{
+		textbackground(BLUE);
+		gotoxy((center - 16),11); 
+		cprintf("Help Dolores escape the farmer");
+		gotoxy((center - 16),13); 	
+		textbackground(WHITE);	
+		cprintf(" [  ] Choose option and enter ");	
+		textbackground(BLUE);   
+}
 void playGame()
 {
-	
+	int readOption;
+
+	while(1)
+	{
+		enemyMonster = 100;
+		chickenhero  = 100;
+		srand(time(NULL));
+		
+		headBar();
+		gameHeader();
+		textbackground(BLACK);	
+		
+		do{
+			gotoxy((center -14 ),13); 
+			scanf("%i", &readOption);  
+			getchar(); 
+			
+					
+			if(readOption==1)
+			{
+			
+				hitAttack=randInt(10);	
+				enemyMonster=enemyMonster-hitAttack;
+				
+				textbackground(BLUE);   						
+				gotoxy((center -36),15);			
+				cprintf("SWING! - By not having seen her the farmer was punished with  %i damage",hitAttack);
+				
+				if(chickenhero < 90){
+        			chickenhero = chickenhero + 5;
+        			gotoxy((center - 36 ),15);
+					textbackground(BLUE);
+        			cprintf("SWING! - By not having seen her the farmer was punished with  %i damage",chickenhero);
+        			textbackground(BLACK);
+				}
+				
+        		headBar();		
+
+        		textbackground(BLACK);
+			}
+			else if(readOption==2) {
+
+				textbackground(BLACK);
+				headBar();
+				
+				gotoxy((center -36),15);			
+				cprintf("The gods are helping you, comes to your aid CLAAASH! %i damage",hitAttack);
+        		textbackground(BLACK);  
+        		
+				
+				/*
+				textbackground(BLACK);  
+				
+				hitAttack=randIntLightning(10);
+				enemyMonster=enemyMonster-hitAttack;
+				
+				headBar();
+				textbackground(BLACK);
+				gotoxy((center -36),15);
+				
+				textbackground(BLUE);        		
+				cprintf("The gods are helping you, comes to your aid CLAAASH! %i damage",hitAttack);
+		        textbackground(BLACK);
+				if(enemyMonster < 0)
+		        {
+		            printf("You have killed the monster you win!\n\n");
+		            break;
+		        }
+       			textbackground(BLACK);
+        */
+			}
+			textbackground(BLACK);
+		}
+		while(1);
+	}
+}
+
+int randInt(int n)
+{
+	return rand()%n + 10;
+}
+
+int randIntLightning(int n)
+{    
+	return rand()%n + 20;	
+}
+
+int randIntFist(int n)
+{
+	return rand()%n +2;
 }
 
 
