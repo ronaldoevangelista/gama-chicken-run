@@ -11,6 +11,7 @@ void main(int argc, char *argv[])
 {
 	system("cls");   
 	clrscr();
+	textbackground(BLACK);	    
  	menuStartGame(); 	
 	printf("\n\n\n\n\n\n\n\n\n");
 	return;

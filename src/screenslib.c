@@ -37,15 +37,21 @@ void createStartGame()
 	getScreenSize();
 	lines();
 	center = gwcols /2;
+	textcolor(GREEN);
 	gotoxy((center - 6),4);
-	printf("Game chicken run");
-    textbackground(BLACK);	    
+	printf("Game Fuga das Galinhas");
+	gotoxy(25,5);
+	printf("Dolores e uma Galinha revoltada que vive tentando fugir do Galinheiro.");
+	gotoxy(15,6);
+	printf("Apos colocar um certo numero de ovos, as galinhas são abatidas e viram recheio para tortas.");
+	gotoxy(35,7);
+	printf("Ajude Dolores a fugir com suas companheiras.");
+	textcolor(7);	
 }
 
 void lines()
 {
 	getScreenSize();
-	textbackground(BLACK);
 	int j,i, cols;
 	
 	gotoxy(16,8);
@@ -67,7 +73,10 @@ void lines()
 
 void erro()
 {         
-    system("cls");                                 
+    system("cls");   
+	
+	
+	                              
 	int j,i;
 	textbackground(RED);
 	for(j=5;j<=23;j++){                   
@@ -76,11 +85,13 @@ void erro()
 		}
 	}  
 	int op;
-	scanf("%d", &op);                                   
+	scanf("%d", &op);
+	textbackground(BLACK); 	
+                                   
 }
+
 void menuStartGame()
 {
-	textbackground(BLACK); 	
 	getScreenSize();
 	createStartGame();
 	
@@ -93,48 +104,41 @@ void menuStartGame()
 		{
 			textcolor(7);
 			createStartGame();	
-			gotoxy((center -10),10); 
-			cprintf("Choose Option 1 or 2 and ENTER");                                                                                     
-			gotoxy((center - 6),11); 
-			cprintf("[ 1 ] - [ New Game ]\n");
+			gotoxy((center - 6),10); 
+			cprintf("Escolha uma opcao");                                                                                     
 			gotoxy((center - 6),12); 
-			cprintf("[ 2 ] - [ Exit     ]");
-			textbackground(YELLOW);	
+			cprintf("[ 1 ] - [ Novo Game]\n");
+			gotoxy((center - 6),13); 
+			cprintf("[ 2 ] - [ Sair     ]");
+			textbackground(BLACK);	
 			gotoxy((center - 6),14); 
-			cprintf("[                  ]");
+			cprintf("[   ] - [ ENTER    ]");
 	        gotoxy((center - 4),14); 
 			scanf("%d", &readOption);                 
 			gotoxy((center - 6),15); 
 			getchar();   
 			textcolor(7);
 			clrscr();
-	        textbackground(BLACK);
-				                  
+	        textbackground(BLACK);	                  
 		}
 		while((readOption<1)||(readOption>2));
 			switch (readOption)
 			{
 				case 1:clrscr();  
-					startNewGame();
+					screenBlue();
 					break;
 				case 2:clrscr();  
 					break;                                   
 			} 
-			textbackground(BLACK);	
 	} while (readOption != 2);
-	textbackground(BLACK); 
 }
-
 
 void startNewGame()
 {
 	int cols;
 	
 	getScreenSize();
-	textbackground(BLACK);
 	headBar();
-	screenBlue();
-	textbackground(BLACK);	  
 	playGame(); 
 	system("cls");   
 }
@@ -143,27 +147,48 @@ void screenBlue()
 {
 	j = 0;
 	i = 0,
+	getScreenSize();
 	
 	lns    = gwrows - 4; 
 	cols   = gwcols - 5; 
-					
+	system("cls"); 				
 	textbackground(BLUE);
 
 	for(i=5;i<=cols;i++)
 	{ 	
-		for(j=10;j<=lns;j++)
+		for(j=6;j<=lns;j++)
 		{
 			gotoxy(i,j);
 			printf(" ");  
 		} 
 	}
-	textbackground(BLACK);	  
+	
+	center = gwcols /2;
+	textcolor(7);
+	gotoxy((center - 8),8);
+	printf("Game Fuga das Galinhas");
+	gotoxy(25,11);
+	printf("Ajude Dolores a escapar do Galinheiro com suas companheiras esta noite.");
+	gotoxy(25,12);
+	printf("Dolores tem as seguintes habilidades, que podem ser usadas com um custo.");
+	gotoxy(25,13);
+	printf("Dolores pode se [Esconder], pode [Correr] e pode [Bicar] seus inimigos.");
+	textcolor(7);
+	
+	gotoxy((center - 3 ),17); 	
+	cprintf("[  OK  ]");	
+	textbackground(BLACK);
+	    
+	int op;
+	gotoxy((center - 3 ),17); 
+	scanf("%i", &op);  
+	getchar(); 	
+	textbackground(BLACK);
 }
 
 void headBar()
 {
 	getScreenSize();
-	textbackground(BLACK);
 	
 	j =0;
 	i =0,
@@ -173,7 +198,7 @@ void headBar()
 	center = gwcols /2;
 	
 	gotoxy((center - 6),2);
-	printf("Game chicken run");
+	printf("Game Fuga das Galinhas");
 	gotoxy(5,6);
 	
 	for(j=5;j<=cols;j++)
@@ -181,17 +206,14 @@ void headBar()
 		printf("-");  
 	} 
 
-	textbackground(BLACK);
 	gotoxy(5,3);
 	for(j=5;j<=cols;j++)
 	{
 		printf("-");  
 	} 
-	
-	textbackground(BLACK);	
-	
+		
 	gotoxy((center - 32),4); 		
-   	cprintf("Attack with what? [1] - Hide [2] - Run [3] - Attack with the beak");
+   	cprintf("Attack with what? [1] - Hide [2] - Run [3] - Attack with the beak [4] - Sair");
    	
 	gotoxy(5,5); 
 	textbackground(RED);
@@ -206,19 +228,19 @@ void headBar()
 
 void gameHeader()
 {
-		textbackground(BLUE);
+		textbackground(BLACK);
 		gotoxy((center - 16),11); 
 		cprintf("Help Dolores escape the farmer");
 		gotoxy((center - 16),13); 	
-		textbackground(WHITE);	
-		cprintf(" [  ] Choose option and enter ");	
-		textbackground(BLUE);   
+		cprintf("[  ] Choose option and enter");	
+	    textbackground(BLACK);
 }
 void playGame()
 {
 	int readOption;
+	int controll = 1;
 
-	while(1)
+	while(controll)
 	{
 		enemyMonster = 100;
 		chickenhero  = 100;
@@ -227,12 +249,17 @@ void playGame()
 		do{
 			headBar();
 			gameHeader();
-			textbackground(BLACK);
 	
-			gotoxy((center -14 ),13); 
+			gotoxy((center -15 ),13); 
 			scanf("%i", &readOption);  
 			getchar(); 
-				
+			
+			if(readOption==4)
+			{
+				controll = 0;
+           		break;
+			}	
+					
 			if(readOption==1)
 			{
 				hitAttack=randInt(10);	
@@ -240,59 +267,57 @@ void playGame()
 				
 				headBar();
 				gameHeader();
-				textbackground(BLUE);
 				
-				textbackground(BLUE);   						
 				gotoxy((center -36),15);			
 				cprintf("SWING! - By not having seen her the farmer was punished with  %i damage",hitAttack);
 				
 				if(chickenhero < 90){
         			chickenhero = chickenhero + 5;
         			gotoxy((center - 36 ),15);
-					textbackground(BLUE);
         			cprintf("SWING! - By not having seen her the farmer was punished with  %i damage",chickenhero);
-        			textbackground(BLACK);
 				}
 
 				if(enemyMonster < 0)
 		        {
-					textbackground(BLUE); 
 					gotoxy((center -26),16);			
 					cprintf("You have killed the monster you win!");
-					textbackground(BLACK);
 					enemyMonster = 0;
 					headBar();
 					gotoxy((center - 2),18);			
 					cprintf("[OK]");
+					gotoxy((center ),18);
 					getchar(); 
 		            break;
 		        }
 		        
+		        hitAttack=randInt(8);
+		        chickenhero=chickenhero-hitAttack;
+        
         		headBar();		
-        		textbackground(BLACK);
 			}
 			else if(readOption==2) {
 				
 				clrscr();		
-				textbackground(BLACK);
 				
 				hitAttack=randIntLightning(10);
 				enemyMonster=enemyMonster-hitAttack;
 				
+				if(hitAttack < 8)
+				{
+					chickenhero = chickenhero - hitAttack;
+				}
+				
 				headBar();
 				gameHeader();
-				screenBlue();
-				textbackground(BLUE); 
-				gotoxy((center -36),15);			
-				cprintf("The gods are helping you, comes to your aid CLAAASH! %i damage",hitAttack);
-        		textbackground(BLACK);  
         		
+        		gotoxy((center -36),15);			
+				cprintf("The gods are helping you, comes to your aid CLAAASH! %i damage",hitAttack);
+				
+				
 				if(enemyMonster < 0)
 		        {
-					textbackground(BLUE); 
 					gotoxy((center -26),16);			
 					cprintf("You have killed the monster you win!");
-					textbackground(BLACK);
 					enemyMonster = 0;
 					headBar();
 					gotoxy((center - 2),18);			
@@ -301,29 +326,25 @@ void playGame()
 		            break;
 		        }
 								
-				/*
-				textbackground(BLACK);  
-				
-		
-				
-				headBar();
-				textbackground(BLACK);
-				gotoxy((center -36),15);
-				
-				textbackground(BLUE);        		
-				cprintf("The gods are helping you, comes to your aid CLAAASH! %i damage",hitAttack);
-		        textbackground(BLACK);
-				if(enemyMonster < 0)
-		        {
-		            printf("You have killed the monster you win!\n\n");
-		            break;
-		        }
-       			textbackground(BLACK);
-        */
 			}
+			/*
+			else (readOption==3)
+			{
+				hitAttack=randIntFist(10);
+        		enemyMonster=enemyMonster-hitAttack;
+
+				headBar();
+				gameHeader();
+        		
+        		gotoxy((center -36),15);			
+				cprintf("The farm  run. Attack with the beak cause %i damage",hitAttack);
+				
+			}
+			*/
+			
 			textbackground(BLACK);
 		}
-		while(1);
+		while(controll);
 	}
 }
 
